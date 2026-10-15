@@ -39,13 +39,9 @@ public class PanelCustom extends JPanel implements KeyListener
    {
       g.setColor(Color.pink);		            //draw a SIZExSIZE blue square
       g.fillRect(0, 0, SIZE, SIZE);
-      int x = textSize, y = textSize;        //location of text drawn on screen
-      g.setColor(Color.white);	
-      g.setFont(new Font("Monospaced", Font.PLAIN, textSize));
       i = p.show();
       g.drawImage(i.getImage(),playerX,playerY,i.getImageObserver());
       p.draw(g,playerX,playerY);
-      
    }
    
    //inherited by JPanel - override to display the graphics we want to show

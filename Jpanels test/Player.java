@@ -9,7 +9,7 @@ import java.awt.Graphics;
 public class Player
 {
    private int row, col; //data where player is at;
-   private int sizex, sizey;
+   private int sizex, sizey; //Size of the image
    private ImageIcon placeholder;
    private int xVelocity;
    private int yVelocity;
@@ -18,9 +18,9 @@ public class Player
    {
       row = ro;
       this.col = col;
-      sizex = 100;
-      sizey = 100;
       placeholder = new ImageIcon("pixil-frame-0.png");
+      sizex = placeholder.getIconWidth();
+      sizey = placeholder.getIconHeight();
    }
    
    public ImageIcon show()
@@ -54,18 +54,18 @@ public class Player
       {
          row = 0;
       }
-      else if(row > h)
+      else if(row >= w - sizex - 10)
       {
-        row = h;  
+        row = w - sizex - 10;  
       }
       
       if(col < 0)
       {
          col = 0;
       }
-      else if(col > w)
+      else if(col >= h - sizey - 30)
       {
-         col = w;
+         col = h - sizey - 30;
       }
    }
    
@@ -84,7 +84,7 @@ public class Player
          setXDirection(10);
          move();
       }
-      else if(e.getKeyCode() == KeyEvent.VK_A)
+      if(e.getKeyCode() == KeyEvent.VK_A)
       {
          setXDirection(-10);
          move();
@@ -94,7 +94,7 @@ public class Player
          setYDirection(-10);
          move();
       }
-      else if(e.getKeyCode() == KeyEvent.VK_S)
+      if(e.getKeyCode() == KeyEvent.VK_S)
       {
          setYDirection(10);
          move();
@@ -108,7 +108,7 @@ public class Player
          setXDirection(0);
          move();
       }
-      else if(e.getKeyCode() == KeyEvent.VK_A)
+      if(e.getKeyCode() == KeyEvent.VK_A)
       {
          setXDirection(0);
          move();
@@ -119,7 +119,7 @@ public class Player
          setYDirection(0);
          move();
       }
-      else if(e.getKeyCode() == KeyEvent.VK_S)
+      if(e.getKeyCode() == KeyEvent.VK_S)
       {
          setYDirection(0);
          move();

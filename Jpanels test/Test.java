@@ -16,18 +16,24 @@ public class Test
    public static void main(String[] args)
    {
       
-      PanelCustom screen3 = new PanelCustom();
-      screen3.setBounds(0,0,1000,1000);
-      screen3.setBackground(Color.pink);
       
       JFrame frame = new JFrame("This is a test");
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setResizable(true);
+      
+      CustomizedPanel screen3 = new CustomizedPanel();
+      screen3.setBounds(0,0,CustomizedPanel.SIZE,CustomizedPanel.SIZE);
+      
+      frame.pack();
+      
       frame.setLayout(null);
       frame.setSize(1000,1000);
-      frame.setLocation(1,1);
+      frame.setLocationRelativeTo(null);
       frame.setVisible(true);
-      frame.addKeyListener(screen3);
+      frame.add(screen3);
+      //frame.addKeyListener(screen3);
       frame.setContentPane(screen3);
+      screen3.startGameThread();
       
    }
 }
